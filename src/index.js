@@ -35,6 +35,7 @@ const MORSE_TABLE = {
     '---..':  '8',
     '----.':  '9',
     '-----':  '0',
+    '**********': ' ',
 };
 
 function decode(expr) {
@@ -43,6 +44,7 @@ function decode(expr) {
         for (let i = 0; i < expr.length; i += 10) {
             newArray.push(expr.slice(i, i + 10)); 
         }
+        
     return newArray.reduce((result, elem) => {
         const replaceDots = elem.replace(/10/g, '.').replace(/11/g, '-').replace(/0/g, '');
         return result += MORSE_TABLE[replaceDots];
